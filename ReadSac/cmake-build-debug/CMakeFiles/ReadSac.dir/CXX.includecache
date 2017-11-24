@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/cypress/Works/PL_project/ReadSac/SacIO.cpp
+cstdio
+-
+SacIO.hpp
+/Users/cypress/Works/PL_project/ReadSac/SacIO.hpp
+
+/Users/cypress/Works/PL_project/ReadSac/SacIO.hpp
+iostream
+-
+
+/Users/cypress/Works/PL_project/ReadSac/main.cpp
+iostream
+-
+SacIO.hpp
+/Users/cypress/Works/PL_project/ReadSac/SacIO.hpp
+
