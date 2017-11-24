@@ -9,5 +9,8 @@ using namespace std;
 
 int main () {
     float sacData[nmax];
-    SacIO::readSac("2016_200_20_G_TAM_BHZ.SAC", sacData);
+    if (SacIO::readSac("2016_200_20_G_TAM_BHZ.SAC", sacData))
+        return -1;
+
+    return 0;
 }

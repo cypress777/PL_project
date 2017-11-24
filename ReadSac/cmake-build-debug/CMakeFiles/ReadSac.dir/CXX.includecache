@@ -7,7 +7,7 @@
 #IncludeRegexTransform: 
 
 /Users/cypress/Works/PL_project/ReadSac/SacIO.cpp
-cstdio
+fstream
 -
 SacIO.hpp
 /Users/cypress/Works/PL_project/ReadSac/SacIO.hpp

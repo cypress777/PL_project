@@ -1,27 +1,28 @@
 //
 // Created by cypress on 24/11/2017.
 //
-#include <cstdio>
+#include <fstream>
 #include "SacIO.hpp"
 
 using namespace std;
 
 bool SacIO::readSac(const string& sacFile, float* sacData) {
-    FILE *fp;
     char sachead[158*4];
-
-    fp = fopen(sacFile.c_str(), "rb");
-    if (fp == nullptr)
+    ifstream fin (sacFile, ifstream::binary);
+    if (!fin)
         return false;
 
-//    fscanf(fp, "%s", sachead);
-    fseek(fp, 158*4, 0);
+    fin.read(sachead, sizeof(SacHead));
 
     int i = 0;
-    while (fscanf(fp, "%f", &sacData[i])) {
+    auto* buffer = new char [sizeof(float)];
+
+    while (fin.read(buffer, sizeof(float))) {
+        memcpy(&sacData[i], buffer, sizeof(float));
         cout << sacData[i] << endl;
         i++;
     }
 
+    delete[] buffer;
     return true;
 }
