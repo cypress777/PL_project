@@ -16,7 +16,7 @@ bool SacIO::readSac(const string& sacFile, float* sacData) {
         return false;
 
     fin.read(sachead, sizeof(SacHead));
-    memcpy(&sacHead, sachead, sizeof(SacHead));
+
 
     int i = 0;
     auto* buffer = new char [sizeof(float)];
