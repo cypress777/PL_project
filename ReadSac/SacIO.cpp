@@ -11,21 +11,18 @@ bool SacIO::readSac(const string& sacFile, float* sacData) {
     char sachead[158*4];
 
     ifstream fin (sacFile, ifstream::binary);
-    if (!fin)
+    if (!fin.is_open())
         return false;
 
     fin.read(sachead, sizeof(SacHead));
 
 
     int i = 0;
-    auto* buffer = new char [sizeof(float)];
 
-    while (fin.read(buffer, sizeof(float))) {
-        memcpy(sacData+i, buffer, sizeof(float));
+    while (fin >> sacData[i]) {
         cout << sacData[i] << endl;
         i++;
     }
-
-    delete[] buffer;
+    
     return true;
 }
