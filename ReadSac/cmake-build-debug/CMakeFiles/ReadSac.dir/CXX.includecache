@@ -9,6 +9,8 @@
 /Users/cypress/Works/PL_project/ReadSac/SacIO.cpp
 fstream
 -
+cstring
+-
 SacIO.hpp
 /Users/cypress/Works/PL_project/ReadSac/SacIO.hpp
 
