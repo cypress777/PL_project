@@ -14,7 +14,7 @@ bool SacIO::readSac(const string& sacFile, float* sacData) {
     if (fp == nullptr)
         return false;
 
-    fscanf(fp, "%s", sachead);
+//    fscanf(fp, "%s", sachead);
     fseek(fp, 158*4, 0);
 
     int i = 0;
