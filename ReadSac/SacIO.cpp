@@ -9,7 +9,6 @@ using namespace std;
 
 bool SacIO::readSac(const string& sacFile, float* sacData) {
     char sachead[158*4];
-    SacHead sacHead;
 
     ifstream fin (sacFile, ifstream::binary);
     if (!fin)
