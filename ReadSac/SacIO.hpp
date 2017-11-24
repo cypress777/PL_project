@@ -147,7 +147,8 @@ struct SacHead {
     char kinst[8];
 };
 
-    static bool readSac(const string&, float*);
+    static bool readSacHead(const string&, SacHead&);
+    static int readSac(const string&, float*);
 };
 
 
