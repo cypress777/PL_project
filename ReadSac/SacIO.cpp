@@ -2,8 +2,6 @@
 // Created by cypress on 24/11/2017.
 //
 #include <cstdio>
-#include <fcntl.h>
-#include <zconf.h>
 #include "SacIO.hpp"
 
 using namespace std;
