@@ -57,11 +57,9 @@
       <file leaf-file-name="SacIO.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SacIO.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="22" column="80" lean-forward="false" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
-              <folding>
-                <element signature="e#43#61#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-81">
+              <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -120,6 +118,11 @@
             <path>
               <item name="ReadSac" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="ReadSac" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReadSac" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="ReadSac" type="462c0819:PsiDirectoryNode" />
               <item name="f90" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -130,6 +133,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cmake-build-debug" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -166,12 +174,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511430746184</updated>
       <workItem from="1511430749313" duration="88000" />
-      <workItem from="1511490499984" duration="9337000" />
+      <workItem from="1511490499984" duration="9669000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9425000" />
+    <option name="totallyTimeSpent" value="9757000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="47" width="1440" height="838" extended-state="0" />
@@ -245,11 +253,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SacIO.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="22" column="80" lean-forward="false" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
-          <folding>
-            <element signature="e#43#61#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-81">
+          <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -2,7 +2,6 @@
 // Created by cypress on 24/11/2017.
 //
 #include <fstream>
-#include <cstring>
 #include "SacIO.hpp"
 
 using namespace std;
@@ -25,11 +24,12 @@ bool SacIO::readSac(const string& sacFile, float* sacData) {
     int i = 0;
     auto* buffer = new char [sizeof(float)];
 
-    while (fin >> sacData[i]) {
+    while (fin.read(buffer, sizeof(float))) {
+        memcpy(sacData+i, buffer, sizeof(float));
         i++;
     }
 
-    cout << i << "points" << endl;
+    cout << i << " points" << endl;
 
     delete[] buffer;
     return true;
