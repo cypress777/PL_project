@@ -11,7 +11,7 @@ bool SacIO::readSac(const string& sacFile, float* sacData) {
     FILE *fp;
     char sachead[158*4];
 
-    fp = fopen(sacFile, "rb");
+    fp = fopen(sacFile.c_str(), "rb");
     if (fp == nullptr)
         return false;
 
