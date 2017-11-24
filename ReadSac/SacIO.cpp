@@ -2,7 +2,7 @@
 // Created by cypress on 24/11/2017.
 //
 #include <fstream>
-#include <memory>
+#include <cstring>
 #include "SacIO.hpp"
 
 using namespace std;
