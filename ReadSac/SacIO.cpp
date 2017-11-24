@@ -9,11 +9,14 @@ using namespace std;
 
 bool SacIO::readSac(const string& sacFile, float* sacData) {
     char sachead[158*4];
+    SacHead sacHead;
+
     ifstream fin (sacFile, ifstream::binary);
     if (!fin)
         return false;
 
     fin.read(sachead, sizeof(SacHead));
+    memcpy(&sacHead, sachead, sizeof(SacHead));
 
     int i = 0;
     auto* buffer = new char [sizeof(float)];
