@@ -24,7 +24,6 @@ bool SacIO::readSac(const string& sacFile, float* sacData) {
 
     while (fin.read(buffer, sizeof(float))) {
         memcpy(&sacData[i], buffer, sizeof(float));
-        cout << sacData[i] << endl;
         i++;
     }
 
