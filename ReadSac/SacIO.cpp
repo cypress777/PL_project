@@ -3,6 +3,7 @@
 //
 #include <cstdio>
 #include <fcntl.h>
+#include <zconf.h>
 #include "SacIO.hpp"
 
 using namespace std;
@@ -16,6 +17,7 @@ bool SacIO::readSac(const string& sacFile, float* sacData) {
         return false;
 
     fscanf(fp, "%s", sachead);
+    fseek(fp, 158*4, 0);
 
     int i = 0;
     while (fscanf(fp, "%f", &sacData[i])) {
