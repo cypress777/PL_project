@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include "SacIO.hpp"
-#define nmax 87000
+#define nmax 870000
 
 using namespace std;
 
