@@ -7,30 +7,7 @@
 
 using namespace std;
 
-int main (int argc,char **argv) {
-    if (argc != 2)
-        return -1;
-
-    string sacFile{argv[1]};
-
-    SacIO::SacHead sacHead{};
-    if (!SacIO::readSacHead(sacFile, sacHead))
-        return -1;
-
-/*    cout << sacHead.kcmpnm << " "<< sacHead.depmin << endl;
-    cout << "station name: " << sacHead.kstnm << endl;
-    cout << "year: " << sacHead.nzyear << " jday: " << sacHead.nzjday << endl;
-    cout << "npts: " << sacHead.npts << endl;
-    cout << "location(la, lo): " << sacHead.stla << " " << sacHead.stlo << endl;*/
-
-    auto sacData = new float[sizeof(float)*sacHead.npts];
-    int npts = SacIO::readSac(sacFile, sacData);
-
-    if (npts < 0)
-        return -1;
-
-//    cout << npts << " points in this sac file" << endl;
-//    auto fftData = new complex<float>[sizeof(complex<float>)*16];
+void testfft() {
     complex<float> fftData[16];
     fftData[0].real(0.5751);
     fftData[1].real(0.4514);
@@ -64,9 +41,36 @@ int main (int argc,char **argv) {
     for (int i = 0; i < 16; i++) {
         cout << fftData[i].real()  << endl;
     }
+}
+
+void testreadsac(string& sacFile) {
+
+
+    SacIO::SacHead sacHead{};
+    SacIO::readSacHead(sacFile, sacHead);
+
+    cout << sacHead.kcmpnm << " "<< sacHead.depmin << endl;
+    cout << "station name: " << sacHead.kstnm << endl;
+    cout << "year: " << sacHead.nzyear << " jday: " << sacHead.nzjday << endl;
+    cout << "npts: " << sacHead.npts << endl;
+    cout << "location(la, lo): " << sacHead.stla << " " << sacHead.stlo << endl;
+
+    auto sacData = new float[sizeof(float)*sacHead.npts];
+    int npts = SacIO::readSac(sacFile, sacData);
+
+    cout << npts << " points in this sac file" << endl;
 
     delete[](sacData);
-//    delete[](fftData);
+}
 
+int main (int argc,char **argv) {
+    if (argc != 2)
+        return -1;
+
+    string sacFile{argv[1]};
+
+    testreadsac(sacFile);
+
+//    testfft();
     return 0;
 }
