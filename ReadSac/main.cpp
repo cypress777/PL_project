@@ -30,10 +30,43 @@ int main (int argc,char **argv) {
         return -1;
 
 //    cout << npts << " points in this sac file" << endl;
-    auto fftData = new complex<float>[sizeof(complex<float>)*1024];
+//    auto fftData = new complex<float>[sizeof(complex<float>)*16];
+    complex<float> fftData[16];
+    fftData[0].real(0.5751);
+    fftData[1].real(0.4514);
+    fftData[2].real(0.0439);
+    fftData[3].real(0.0272);
+    fftData[4].real(0.3127);
+    fftData[5].real(0.0129);
+    fftData[6].real(0.3840);
+    fftData[7].real(0.6831);
+    fftData[8].real(0.0928);
+    fftData[9].real(0.0353);
+    fftData[10].real(0.6124);
+    fftData[11].real (0.6085);
+    fftData[12].real (0.0158);
+    fftData[13].real (0.0164);
+    fftData[14].real (0.1901);
+    fftData[15].real (0.5869);
 
+    for (int i = 0; i < 16; i++) {
+        cout << fftData[i].real()  << endl;
+    }
+    cout << "====================" << endl;
+
+    SacIO::FFT(fftData, 16);
+    for (int i = 0; i < 16; i++) {
+        cout << fftData[i].real() << "  " << fftData[i].imag() << endl;
+    }
+    cout << "====================" << endl;
+
+    SacIO::IFFT(fftData, 16);
+    for (int i = 0; i < 16; i++) {
+        cout << fftData[i].real()  << endl;
+    }
 
     delete[](sacData);
-    delete[](fftData);
+//    delete[](fftData);
+
     return 0;
 }

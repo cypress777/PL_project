@@ -154,8 +154,8 @@ struct SacHead {
 
     static bool readSacHead(const string&, SacHead&);
     static int readSac(const string&, float*);
-    static void Dit2(complex<float>*, int, int);
     static void FFT(complex<float>*, int);
+    static void IFFT(complex<float>*, int);
 };
 
 
