@@ -6,10 +6,15 @@
 #define READSAC_SACIO_HPP
 
 #include <iostream>
+#include <complex>
 
 using namespace std;
 
 class SacIO {
+private:
+    static void swap(complex<float>*, int, int);
+    static void BitRev(complex<float>*, int);
+
 public:
 struct SacHead {
     float delta;
@@ -149,6 +154,8 @@ struct SacHead {
 
     static bool readSacHead(const string&, SacHead&);
     static int readSac(const string&, float*);
+    static void Dit2(complex<float>*, int, int);
+    static void FFT(complex<float>*, int);
 };
 
 
