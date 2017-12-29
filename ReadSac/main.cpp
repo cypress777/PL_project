@@ -49,7 +49,7 @@ void testreadsac(string& sacFile) {
     SacIO::SacHead sacHead{};
     SacIO::readSacHead(sacFile, sacHead);
 
-    cout << sacHead.kcmpnm << " "<< sacHead.depmin << endl;
+    cout << dec << sacHead.scale << endl;
     cout << "station name: " << sacHead.kstnm << endl;
     cout << "year: " << sacHead.nzyear << " jday: " << sacHead.nzjday << endl;
     cout << "npts: " << sacHead.npts << endl;
@@ -60,17 +60,51 @@ void testreadsac(string& sacFile) {
 
     cout << npts << " points in this sac file" << endl;
 
+    for (int i = npts/2; i < npts/2+10; i++) {
+        cout << sacData[i] << " ";
+    }
+    cout << endl;
+
+    float min = sacData[0];
+    float max = min;
+
+    for (int i = 1; i < npts; i++) {
+        if (sacData[i] < min) min = sacData[i];
+        else if (sacData[i] > max) max = sacData[i];
+    }
+
+    cout << "min: " << min << endl;
+    cout << "max: " << max << endl;
+
     delete[](sacData);
 }
 
 int main (int argc,char **argv) {
+    testfft();
     if (argc != 2)
         return -1;
 
     string sacFile{argv[1]};
 
-    testreadsac(sacFile);
+    int window = 4096;
+    int overlap = 2048;
 
-//    testfft();
+    SacIO::SacHead sacHead{};
+    SacIO::readSacHead(sacFile, sacHead);
+    auto sacData = new float[sizeof(float)*sacHead.npts];
+    int npts = SacIO::readSac(sacFile, sacData);
+
+    int winNum = 0;
+    while ((++winNum * (window - overlap) + overlap) < npts);
+
+    for (int i = 0; i < winNum; i++) {
+        complex<float> fftData[window];
+        for (int j = 0; j < window; j++) {
+            fftData[j].real(sacData[i * (window-overlap) + j]);
+        }
+
+        SacIO::FFT(fftData, window);
+    }
+
     return 0;
 }
